@@ -23,6 +23,8 @@ fgt-sessions sessions.txt
 fgt-sessions sessions.txt --policy 12
 fgt-sessions sessions.txt --src 192.168.1.0/24 --proto tcp
 fgt-sessions sessions.txt --top 10
+fgt-sessions sessions.txt --summary
+fgt-sessions sessions.txt --summary --proto udp --older-than 60
 fgt-sessions sessions.txt --older-than 180 --dst 198.51.100.0/24
 fgt-sessions sessions.txt --json
 ```
@@ -37,7 +39,8 @@ Use `-` as the file name to read from stdin.
 | `--proto tcp\|udp\|icmp` | Protocol |
 | `--older-than SECONDS` | Only sessions older than this. Answers "did this flow start before the event?" |
 | `--newer-than SECONDS` | Only sessions younger than this |
-| `--top N` | The N busiest sessions by total bytes |
+| `--top N` | The N busiest sessions by total bytes (with `--summary`, the N busiest policies) |
+| `--summary` | One row per policy: session count and bytes sent, received and total |
 | `--json` | JSON instead of a table |
 
 Age and Expire are in seconds. Sent and Received are the original and reply directions.

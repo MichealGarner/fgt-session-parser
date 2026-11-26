@@ -87,3 +87,38 @@ def test_age_filter_excludes_sessions_without_duration(tmp_path, capsys):
     )
     assert main([str(f), "--json", "--older-than", "0"]) == 0
     assert json.loads(capsys.readouterr().out) == []
+
+
+PUBLISHED = str(Path(__file__).parent / "fixtures" / "published_lines.txt")
+
+
+def test_summary_sorted_by_total_bytes(capsys):
+    code, rows = run_json(capsys, "--summary")
+    assert code == 0
+    assert [r["policy_id"] for r in rows] == [12, 5, 7]
+    assert rows[1]["bytes_org"] == 1234 and rows[1]["bytes_reply"] == 5678
+    assert rows[1]["bytes_total"] == 6912
+
+
+def test_summary_top_limits_policies(capsys):
+    _, rows = run_json(capsys, "--summary", "--top", "1")
+    assert [r["policy_id"] for r in rows] == [12]
+
+
+def test_summary_respects_filters(capsys):
+    _, rows = run_json(capsys, "--summary", "--proto", "udp")
+    assert [(r["policy_id"], r["sessions"]) for r in rows] == [(7, 1)]
+
+
+def test_summary_groups_sessions_and_reports_unknown_bytes(capsys):
+    assert main([PUBLISHED, "--summary", "--json"]) == 0
+    rows = json.loads(capsys.readouterr().out)
+    assert rows == [{
+        "policy_id": 44, "sessions": 2,
+        "bytes_org": None, "bytes_reply": None, "bytes_total": None,
+    }]
+
+
+def test_summary_table_runs(capsys):
+    assert main([FIXTURE, "--summary"]) == 0
+    assert "3 polic(ies) from 3 of 3 session(s)" in capsys.readouterr().out

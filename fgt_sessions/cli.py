@@ -105,6 +105,44 @@ def _table(sessions: list[Session]) -> Table:
     return t
 
 
+def summarise(sessions: list[Session]) -> list[dict]:
+    """Group sessions by policy ID. Byte totals are None if no session had stats."""
+    groups: dict[Optional[int], dict] = {}
+    for s in sessions:
+        g = groups.setdefault(
+            s.policy_id,
+            {"policy_id": s.policy_id, "sessions": 0, "bytes_org": None, "bytes_reply": None},
+        )
+        g["sessions"] += 1
+        for key, val in (("bytes_org", s.bytes_org), ("bytes_reply", s.bytes_reply)):
+            if val is not None:
+                g[key] = (g[key] or 0) + val
+    rows = list(groups.values())
+    for g in rows:
+        if g["bytes_org"] is None and g["bytes_reply"] is None:
+            g["bytes_total"] = None
+        else:
+            g["bytes_total"] = (g["bytes_org"] or 0) + (g["bytes_reply"] or 0)
+    rows.sort(key=lambda g: (-(g["bytes_total"] or 0), -g["sessions"],
+                             g["policy_id"] if g["policy_id"] is not None else -1))
+    return rows
+
+
+def _summary_table(rows: list[dict]) -> Table:
+    t = Table(show_lines=False)
+    for col in ("Policy", "Sessions", "Sent", "Received", "Total"):
+        t.add_column(col, min_width=len(col), no_wrap=True)
+    for g in rows:
+        t.add_row(
+            "-" if g["policy_id"] is None else str(g["policy_id"]),
+            str(g["sessions"]),
+            _human(g["bytes_org"]),
+            _human(g["bytes_reply"]),
+            _human(g["bytes_total"]),
+        )
+    return t
+
+
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
         prog="fgt-sessions",
@@ -121,6 +159,8 @@ def build_parser() -> argparse.ArgumentParser:
                    help="only sessions whose age is less than SECONDS")
     p.add_argument("--top", type=int, metavar="N",
                    help="show the N busiest sessions by total bytes")
+    p.add_argument("--summary", action="store_true",
+                   help="one row per policy: session count and bytes (--top limits policies)")
     p.add_argument("--json", action="store_true", help="JSON output instead of a table")
     return p
 
@@ -147,6 +187,19 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
     total = len(sessions)
     sessions = [s for s in sessions if _matches(s, args)]
+
+    if args.summary:
+        rows = summarise(sessions)
+        if args.top is not None:
+            rows = rows[: args.top]
+        if args.json:
+            print(json.dumps(rows, indent=2))
+        else:
+            console = Console()
+            console.print(_summary_table(rows))
+            console.print(f"{len(rows)} polic(ies) from {len(sessions)} of {total} session(s)")
+        return 0
+
     if args.top is not None:
         sessions = sorted(sessions, key=_total_bytes, reverse=True)[: args.top]
 
