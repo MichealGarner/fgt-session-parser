@@ -71,6 +71,7 @@ def _to_json(sessions: list[Session]) -> str:
     for s in sessions:
         d = asdict(s)
         d["proto_name"] = s.proto_name
+        d["state_name"] = s.state_name
         d.pop("extra", None)
         rows.append(d)
     return json.dumps(rows, indent=2)
@@ -83,7 +84,7 @@ def _table(sessions: list[Session]) -> Table:
         t.add_column(
             col,
             min_width=len(col),
-            no_wrap=col in ("Source", "Destination", "NAT", "Sent", "Received"),
+            no_wrap=col in ("Source", "Destination", "NAT", "State", "Sent", "Received"),
         )
     for s in sessions:
         o = s.origin or (s.hops[0] if s.hops else None)
@@ -96,7 +97,7 @@ def _table(sessions: list[Session]) -> Table:
             escape(dst),
             escape(nat),
             "-" if s.policy_id is None else str(s.policy_id),
-            s.proto_state or "-",
+            s.state_name or s.proto_state or "-",
             "-" if s.duration is None else str(s.duration),
             "-" if s.expire is None else str(s.expire),
             _human(s.bytes_org),

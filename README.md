@@ -55,10 +55,12 @@ Age and Expire are in seconds. Sent and Received are the original and reply dire
 
 ## What it does not do yet
 
-- `proto_state` is shown as the raw value. The meaning of each value has not been
-  verified against a live unit, so the tool does not name states.
-- Tested against hand-built and published sample lines, not full captures from every
-  FortiOS version. IPv6 sessions are untested. See `NOTES.md` for the open checks.
+- TCP states are named from Fortinet's session table (01 = ESTABLISHED confirmed on
+  FortiOS 7.6.6). Unrecognised or two-digit values, and non-TCP protocols, are shown raw.
+- Local sessions (traffic to or from the FortiGate itself) have no firewall policy and
+  show `-` in the Policy column.
+- Tested against hand-built samples, published lines, and one real 7.6.6 capture, not
+  every FortiOS version. IPv6 sessions are untested. See `NOTES.md` for the open checks.
 - Blocks it cannot parse are skipped and counted on stderr, not repaired.
 
 ## Tests

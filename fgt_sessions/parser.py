@@ -45,6 +45,9 @@ def _to_int(value: str) -> Optional[int]:
         return None
 
 
+NO_POLICY = 4294967295  # 0xFFFFFFFF: local-in/out traffic with no firewall policy
+
+
 def _split_blocks(text: str) -> list[list[str]]:
     """Group lines into one list per 'session info:' block.
 
@@ -108,6 +111,10 @@ def _parse_block(lines: list[str]) -> Optional[Session]:
     for key, attr in INT_FIELDS.items():
         if key in kv:
             setattr(session, attr, _to_int(kv[key]))
+    if "vd" in kv:  # seen as 'vd=0:20' on 7.6.6; the leading number is the index
+        session.vd = _to_int(kv["vd"].split(":")[0])
+    if session.policy_id == NO_POLICY:
+        session.policy_id = None
     if stats:
         (session.bytes_org, session.packets_org,
          session.bytes_reply, session.packets_reply) = stats
