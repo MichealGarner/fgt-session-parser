@@ -55,8 +55,13 @@ Age and Expire are in seconds. Sent and Received are the original and reply dire
 
 ## What it does not do yet
 
-- TCP states are named from Fortinet's session table (01 = ESTABLISHED confirmed on
-  FortiOS 7.6.6). Unrecognised or two-digit values, and non-TCP protocols, are shown raw.
+- TCP `proto_state` is two digits, one per direction (Fortinet Administration Guide,
+  "Using a session table"). Each digit is named from the FortiOS CLI reference
+  (0 NONE, 1 ESTABLISHED, 2 SYN_SENT, 3 SYN_RECV, 4 FIN_WAIT, 5 TIME_WAIT, 6 CLOSE,
+  7 CLOSE_WAIT, 8 LAST_ACK, 9 LISTEN) and shown as `FIRST/SECOND`, so `01` reads
+  `NONE/ESTABLISHED` and `11` reads `ESTABLISHED/ESTABLISHED`. The guide does not say
+  which digit is which direction, so the tool does not label them. Non-TCP protocols
+  show the raw value.
 - Local sessions (traffic to or from the FortiGate itself) have no firewall policy and
   show `-` in the Policy column.
 - Tested against hand-built samples, published lines, and one real 7.6.6 capture, not

@@ -10,7 +10,7 @@ def test_real_local_ssh_session():
     sessions, skipped = parse_sessions(REAL.read_text())
     assert (len(sessions), skipped) == (1, 0)
     s = sessions[0]
-    assert s.proto_state == "01" and s.state_name == "ESTABLISHED"
+    assert s.proto_state == "01" and s.state_name == "NONE/ESTABLISHED"
     assert (s.bytes_org, s.packets_org) == (8693, 103)
     assert (s.bytes_reply, s.packets_reply) == (14136, 111)
     assert s.vd == 0
@@ -26,11 +26,11 @@ def test_state_names():
     def tcp(state):
         return Session(proto=6, proto_state=state).state_name
 
-    assert tcp("01") == "ESTABLISHED"
-    assert tcp("02") == "SYN_SENT"
-    assert tcp("05") == "TIME_WAIT"
-    assert tcp("07") == "CLOSE_WAIT"
-    assert tcp("11") is None      # two-digit form seen in Fortinet docs: kept raw
-    assert tcp("99") is None
+    assert tcp("01") == "NONE/ESTABLISHED"
+    assert tcp("11") == "ESTABLISHED/ESTABLISHED"
+    assert tcp("37") == "SYN_RECV/CLOSE_WAIT"
+    assert tcp("89") == "LAST_ACK/LISTEN"
+    assert tcp("1") is None       # not two digits
+    assert tcp("1a") is None
     assert tcp(None) is None
     assert Session(proto=17, proto_state="01").state_name is None

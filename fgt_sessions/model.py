@@ -9,15 +9,18 @@ PROTO_NAMES = {1: "icmp", 6: "tcp", 17: "udp"}
 
 # TCP proto_state values per Fortinet's session table KB; 01 = ESTABLISHED was
 # confirmed on FortiOS 7.6.6. Other protocols and unknown values stay raw.
+# Names from the FortiOS CLI reference ("diagnose sys session filter proto-state").
 TCP_STATES = {
     0: "NONE",
     1: "ESTABLISHED",
     2: "SYN_SENT",
-    3: "SYN_SYN/ACK",
+    3: "SYN_RECV",
     4: "FIN_WAIT",
     5: "TIME_WAIT",
     6: "CLOSE",
     7: "CLOSE_WAIT",
+    8: "LAST_ACK",
+    9: "LISTEN",
 }
 
 
@@ -58,12 +61,18 @@ class Session:
 
     @property
     def state_name(self) -> Optional[str]:
-        """Name of the TCP state, or None if not TCP or the value is not recognised."""
-        if self.proto != 6 or not self.proto_state or not self.proto_state.isdigit():
+        """TCP state names for the two proto_state digits, joined with "/".
+
+        Fortinet's Administration Guide says a TCP proto_state has two digits
+        because FortiGate tracks both directions. It does not say which digit is
+        which direction, so the names are shown in the order the digits appear.
+        Returns None if not TCP or the value is not two digits.
+        """
+        if self.proto != 6 or not self.proto_state:
             return None
-        if len(self.proto_state) != 2:
+        if len(self.proto_state) != 2 or not self.proto_state.isdigit():
             return None
-        return TCP_STATES.get(int(self.proto_state))
+        return "/".join(TCP_STATES[int(d)] for d in self.proto_state)
 
     @property
     def origin(self) -> Optional[Hop]:
