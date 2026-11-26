@@ -34,3 +34,18 @@ def test_state_names():
     assert tcp("1a") is None
     assert tcp(None) is None
     assert Session(proto=17, proto_state="01").state_name is None
+
+
+def test_multivdom_capture():
+    from collections import Counter
+    from pathlib import Path
+    from fgt_sessions.parser import parse_sessions
+
+    text = Path(__file__).parent.joinpath("fixtures", "real_7_6_6_multivdom.txt").read_text()
+    sessions, skipped = parse_sessions(text)
+    assert len(sessions) == 20 and skipped == 0
+    states = Counter((s.proto, s.proto_state) for s in sessions)
+    # Every established TCP session on this unit, forwarded or local, reads 01.
+    assert states[(6, "01")] == 10
+    # UDP: 00 = no reply seen, 01 = reply seen.
+    assert states[(17, "00")] == 4 and states[(17, "01")] == 6

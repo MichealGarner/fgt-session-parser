@@ -1,0 +1,397 @@
+session info: proto=17 proto_state=00 duration=166 expire=13 timeout=0 refresh_dir=both flags=00000000 socktype=0 sockport=0 av_idx=0 use=3
+origin-shaper=
+reply-shaper=
+per_ip_shaper=
+class_id=0 ha_id=0 policy_dir=0 tunnel=/ vlan_cos=0/255
+state=log may_dirty npu f00
+statistic(bytes/packets/allow_err): org=464/1/1 reply=0/0/0 tuples=2
+tx speed(Bps/kbps): 2/0 rx speed(Bps/kbps): 0/0
+orgin->sink: org pre->post, reply pre->post dev=18->3/3->18 gwy=203.0.113.1/0.0.0.0
+hook=post dir=org act=snat 10.10.0.23:53917->192.53.103.108:123(203.0.113.10:53917)
+hook=pre dir=reply act=dnat 192.53.103.108:123->203.0.113.10:53917(10.10.0.23:53917)
+misc=0 policy_id=4 pol_uuid_idx=666 auth_info=0 chk_client_info=0 vd=0
+serial=000f8761 tos=ff/ff app_list=0 app=0 url_cat=0
+rpdb_link_id=00000000 ngfwid=n/a
+npu_state=00000000
+npu info: flag=0x00/0x00, offload=0/0, ips_offload=0/0, epid=0/0, ipid=0/0, vlan=0x0000/0x0000
+vlifid=0/0, vtag_in=0x0000/0x0000 in_npu=0/0, out_npu=0/0, fwd_en=0/0, qid=0/0, ha_divert=0/0
+no_ofld_reason:
+hrx info: valid=0/0, qid=0/0, npuid=0/0, sublink=0/0
+
+session info: proto=17 proto_state=00 duration=166 expire=13 timeout=0 refresh_dir=both flags=00000000 socktype=0 sockport=0 av_idx=0 use=3
+origin-shaper=
+reply-shaper=
+per_ip_shaper=
+class_id=0 ha_id=0 policy_dir=0 tunnel=/ vlan_cos=0/255
+state=log may_dirty npu f00
+statistic(bytes/packets/allow_err): org=464/1/1 reply=0/0/0 tuples=2
+tx speed(Bps/kbps): 2/0 rx speed(Bps/kbps): 0/0
+orgin->sink: org pre->post, reply pre->post dev=29->19/19->29 gwy=169.254.253.1/0.0.0.0
+hook=pre dir=org act=noop 10.10.0.23:53917->192.53.103.108:123(0.0.0.0:0)
+hook=post dir=reply act=noop 192.53.103.108:123->10.10.0.23:53917(0.0.0.0:0)
+src_mac=02:00:00:00:00:01
+misc=0 policy_id=3 pol_uuid_idx=665 auth_info=0 chk_client_info=0 vd=0:20
+serial=000f8760 tos=ff/ff app_list=0 app=0 url_cat=0
+rpdb_link_id=00000000 ngfwid=n/a
+npu_state=00000000
+npu info: flag=0x00/0x00, offload=0/0, ips_offload=0/0, epid=0/0, ipid=0/0, vlan=0x0000/0x0000
+vlifid=0/0, vtag_in=0x0000/0x0000 in_npu=0/0, out_npu=0/0, fwd_en=0/0, qid=0/0, ha_divert=0/0
+no_ofld_reason:
+hrx info: valid=0/0, qid=0/0, npuid=0/0, sublink=0/0
+
+session info: proto=6 proto_state=01 duration=1553921 expire=3598 timeout=3600 refresh_dir=both flags=00000000 socktype=0 sockport=0 av_idx=0 use=3
+origin-shaper=
+reply-shaper=
+per_ip_shaper=
+class_id=0 ha_id=0 policy_dir=0 tunnel=/ helper=rsh vlan_cos=0/255
+state=log local
+statistic(bytes/packets/allow_err): org=496151440/1074074/1 reply=56278361/844393/1 tuples=2
+tx speed(Bps/kbps): 319/2 rx speed(Bps/kbps): 36/0
+orgin->sink: org out->post, reply pre->in dev=15->29/29->15 gwy=0.0.0.0/0.0.0.0
+hook=out dir=org act=noop 10.10.0.1:20572->10.10.0.20:514(0.0.0.0:0)
+hook=in dir=reply act=noop 10.10.0.20:514->10.10.0.1:20572(0.0.0.0:0)
+pos/(before,after) 0/(0,0), 0/(0,0)
+dst_mac=02:00:00:00:00:01
+misc=0 policy_id=0 pol_uuid_idx=0 auth_info=0 chk_client_info=0 vd=0:20
+serial=00000688 tos=ff/ff app_list=0 app=0 url_cat=0
+rpdb_link_id=00000000 ngfwid=n/a
+npu_state=00000000
+no_ofld_reason:  local
+hrx info: valid=0/0, qid=0/0, npuid=0/0, sublink=0/0
+
+session info: proto=6 proto_state=01 duration=149360 expire=3586 timeout=3600 refresh_dir=both flags=00000000 socktype=0 sockport=0 av_idx=0 use=3
+origin-shaper=
+reply-shaper=
+per_ip_shaper=
+class_id=0 ha_id=0 policy_dir=0 tunnel=/ tun_id=10.0.0.5/0.0.0.0 vlan_cos=0/255
+state=log local
+statistic(bytes/packets/allow_err): org=441106/5690/1 reply=441215/5692/1 tuples=2
+tx speed(Bps/kbps): 3/0 rx speed(Bps/kbps): 3/0
+orgin->sink: org out->post, reply pre->in dev=15->36/36->15 gwy=0.0.0.0/0.0.0.0
+hook=out dir=org act=noop 10.0.1.1:7255->10.0.1.12:179(0.0.0.0:0)
+hook=in dir=reply act=noop 10.0.1.12:179->10.0.1.1:7255(0.0.0.0:0)
+pos/(before,after) 0/(0,0), 0/(0,0)
+misc=0 policy_id=0 pol_uuid_idx=0 auth_info=0 chk_client_info=0 vd=0:100
+serial=000e0f62 tos=ff/ff app_list=0 app=0 url_cat=0
+rpdb_link_id=00000000 ngfwid=n/a
+npu_state=00000000
+no_ofld_reason:  local
+hrx info: valid=0/0, qid=0/0, npuid=0/0, sublink=0/0
+
+session info: proto=6 proto_state=01 duration=299 expire=3559 timeout=3600 refresh_dir=both flags=00000000 socktype=0 sockport=0 av_idx=0 use=3
+origin-shaper=
+reply-shaper=
+per_ip_shaper=
+class_id=0 ha_id=0 policy_dir=0 tunnel=/ vlan_cos=0/255
+state=log may_dirty npu f00
+statistic(bytes/packets/allow_err): org=5588/35/1 reply=14528/23/1 tuples=2
+tx speed(Bps/kbps): 18/0 rx speed(Bps/kbps): 48/0
+orgin->sink: org pre->post, reply pre->post dev=18->3/3->18 gwy=203.0.113.1/169.254.253.2
+hook=post dir=org act=snat 10.10.0.5:41550->8.8.8.8:853(203.0.113.10:41550)
+hook=pre dir=reply act=dnat 8.8.8.8:853->203.0.113.10:41550(10.10.0.5:41550)
+pos/(before,after) 0/(0,0), 0/(0,0)
+misc=0 policy_id=4 pol_uuid_idx=666 auth_info=0 chk_client_info=0 vd=0
+serial=000f86fa tos=ff/ff app_list=0 app=0 url_cat=0
+rpdb_link_id=00000000 ngfwid=n/a
+npu_state=0x000c00 ofld-O ofld-R
+npu info: flag=0x81/0x91, offload=9/9, ips_offload=0/0, epid=1/14, ipid=14/1, vlan=0x0000/0x0000
+vlifid=14/1, vtag_in=0x0000/0x0000 in_npu=1/1, out_npu=1/1, fwd_en=0/0, qid=5/1, ha_divert=0/0
+hrx info: valid=0/0, qid=0/0, npuid=0/0, sublink=0/0
+
+session info: proto=6 proto_state=01 duration=299 expire=3559 timeout=3600 refresh_dir=both flags=00000000 socktype=0 sockport=0 av_idx=0 use=3
+origin-shaper=
+reply-shaper=
+per_ip_shaper=
+class_id=0 ha_id=0 policy_dir=0 tunnel=/ vlan_cos=0/255
+state=log may_dirty npu f00
+statistic(bytes/packets/allow_err): org=5588/35/1 reply=14528/23/1 tuples=2
+tx speed(Bps/kbps): 18/0 rx speed(Bps/kbps): 48/0
+orgin->sink: org pre->post, reply pre->post dev=29->19/19->29 gwy=169.254.253.1/0.0.0.0
+hook=pre dir=org act=noop 10.10.0.5:41550->8.8.8.8:853(0.0.0.0:0)
+hook=post dir=reply act=noop 8.8.8.8:853->10.10.0.5:41550(0.0.0.0:0)
+pos/(before,after) 0/(0,0), 0/(0,0)
+src_mac=02:00:00:00:00:01
+misc=0 policy_id=3 pol_uuid_idx=665 auth_info=0 chk_client_info=0 vd=0:20
+serial=000f86f9 tos=ff/ff app_list=0 app=0 url_cat=0
+rpdb_link_id=00000000 ngfwid=n/a
+npu_state=0x000c00 ofld-O ofld-R
+npu info: flag=0x91/0x81, offload=9/9, ips_offload=0/0, epid=15/18, ipid=18/15, vlan=0x000a/0x0000
+vlifid=18/15, vtag_in=0x000a/0x0000 in_npu=1/1, out_npu=1/1, fwd_en=0/0, qid=5/0, ha_divert=0/0
+hrx info: valid=0/0, qid=0/0, npuid=0/0, sublink=0/0
+
+session info: proto=6 proto_state=01 duration=17 expire=3582 timeout=3600 refresh_dir=both flags=00000000 socktype=0 sockport=0 av_idx=0 use=3
+origin-shaper=
+reply-shaper=
+per_ip_shaper=
+class_id=0 ha_id=0 policy_dir=0 tunnel=/ vlan_cos=0/255
+state=log may_dirty npu f00
+statistic(bytes/packets/allow_err): org=112/2/1 reply=60/1/1 tuples=2
+tx speed(Bps/kbps): 0/0 rx speed(Bps/kbps): 0/0
+orgin->sink: org pre->post, reply pre->post dev=18->3/3->18 gwy=203.0.113.1/169.254.253.2
+hook=post dir=org act=snat 10.10.0.22:51466->8.8.4.4:853(203.0.113.10:51466)
+hook=pre dir=reply act=dnat 8.8.4.4:853->203.0.113.10:51466(10.10.0.22:51466)
+pos/(before,after) 0/(0,0), 0/(0,0)
+misc=0 policy_id=4 pol_uuid_idx=666 auth_info=0 chk_client_info=0 vd=0
+serial=000f87b1 tos=ff/ff app_list=0 app=0 url_cat=0
+rpdb_link_id=00000000 ngfwid=n/a
+npu_state=0x000c00 ofld-O ofld-R
+npu info: flag=0x81/0x91, offload=9/9, ips_offload=0/0, epid=1/14, ipid=14/1, vlan=0x0000/0x0000
+vlifid=14/1, vtag_in=0x0000/0x0000 in_npu=1/1, out_npu=1/1, fwd_en=0/0, qid=7/0, ha_divert=0/0
+hrx info: valid=0/0, qid=0/0, npuid=0/0, sublink=0/0
+
+session info: proto=6 proto_state=01 duration=17 expire=3582 timeout=3600 refresh_dir=both flags=00000000 socktype=0 sockport=0 av_idx=0 use=3
+origin-shaper=
+reply-shaper=
+per_ip_shaper=
+class_id=0 ha_id=0 policy_dir=0 tunnel=/ vlan_cos=0/255
+state=log may_dirty npu f00
+statistic(bytes/packets/allow_err): org=112/2/1 reply=60/1/1 tuples=2
+tx speed(Bps/kbps): 0/0 rx speed(Bps/kbps): 0/0
+orgin->sink: org pre->post, reply pre->post dev=29->19/19->29 gwy=169.254.253.1/0.0.0.0
+hook=pre dir=org act=noop 10.10.0.22:51466->8.8.4.4:853(0.0.0.0:0)
+hook=post dir=reply act=noop 8.8.4.4:853->10.10.0.22:51466(0.0.0.0:0)
+pos/(before,after) 0/(0,0), 0/(0,0)
+src_mac=02:00:00:00:00:01
+misc=0 policy_id=3 pol_uuid_idx=665 auth_info=0 chk_client_info=0 vd=0:20
+serial=000f87b0 tos=ff/ff app_list=0 app=0 url_cat=0
+rpdb_link_id=00000000 ngfwid=n/a
+npu_state=0x000c00 ofld-O ofld-R
+npu info: flag=0x91/0x81, offload=9/9, ips_offload=0/0, epid=15/18, ipid=18/15, vlan=0x000a/0x0000
+vlifid=18/15, vtag_in=0x000a/0x0000 in_npu=1/1, out_npu=1/1, fwd_en=0/0, qid=7/6, ha_divert=0/0
+hrx info: valid=0/0, qid=0/0, npuid=0/0, sublink=0/0
+
+session info: proto=17 proto_state=00 duration=149359 expire=179 timeout=0 refresh_dir=both flags=00000000 socktype=0 sockport=0 av_idx=0 use=3
+origin-shaper=
+reply-shaper=
+per_ip_shaper=
+class_id=0 ha_id=0 policy_dir=0 tunnel=/ tun_id=0.0.0.0/10.0.1.12 vlan_cos=0/0
+state=log local may_dirty
+statistic(bytes/packets/allow_err): org=17734704/341052/1 reply=0/0/0 tuples=2
+tx speed(Bps/kbps): 118/0 rx speed(Bps/kbps): 0/0
+orgin->sink: org pre->in, reply out->post dev=37->15/15->37 gwy=0.0.0.0/0.0.0.0
+hook=pre dir=org act=noop 10.0.1.12:49153->10.0.1.1:4784(0.0.0.0:0)
+hook=post dir=reply act=noop 10.0.1.1:4784->10.0.1.12:49153(0.0.0.0:0)
+misc=0 policy_id=901 pol_uuid_idx=682 auth_info=0 chk_client_info=0 vd=0:100
+serial=000e0f65 tos=ff/ff app_list=0 app=0 url_cat=0
+rpdb_link_id=00000000 ngfwid=n/a
+npu_state=00000000
+no_ofld_reason:  local
+hrx info: valid=0/0, qid=0/0, npuid=0/0, sublink=0/0
+
+session info: proto=17 proto_state=00 duration=149359 expire=179 timeout=0 refresh_dir=both flags=00000000 socktype=0 sockport=0 av_idx=0 use=3
+origin-shaper=
+reply-shaper=
+per_ip_shaper=
+class_id=0 ha_id=0 policy_dir=0 tunnel=/ vlan_cos=0/255
+state=log local nds
+statistic(bytes/packets/allow_err): org=17707040/340520/1 reply=0/0/0 tuples=2
+tx speed(Bps/kbps): 118/0 rx speed(Bps/kbps): 0/0
+orgin->sink: org out->post, reply pre->in dev=15->37/37->0 gwy=0.0.0.0/0.0.0.0
+hook=out dir=org act=noop 10.0.1.1:49153->10.0.1.12:4784(0.0.0.0:0)
+hook=in dir=reply act=noop 10.0.1.12:4784->10.0.1.1:49153(0.0.0.0:0)
+misc=0 policy_id=0 pol_uuid_idx=0 auth_info=0 chk_client_info=0 vd=0:100
+serial=000e0f64 tos=ff/ff app_list=0 app=0 url_cat=0
+rpdb_link_id=00000000 ngfwid=n/a
+npu_state=00000000
+no_ofld_reason:  local
+hrx info: valid=0/0, qid=0/0, npuid=0/0, sublink=0/0
+
+session info: proto=6 proto_state=01 duration=12 expire=3599 timeout=3600 refresh_dir=both flags=00000000 socktype=0 sockport=0 av_idx=0 use=3
+origin-shaper=
+reply-shaper=
+per_ip_shaper=
+class_id=0 ha_id=0 policy_dir=0 tunnel=/ vlan_cos=0/0
+state=log local may_dirty
+statistic(bytes/packets/allow_err): org=5769/52/1 reply=7204/48/1 tuples=2
+tx speed(Bps/kbps): 474/3 rx speed(Bps/kbps): 592/4
+orgin->sink: org pre->in, reply out->post dev=29->15/15->29 gwy=0.0.0.0/0.0.0.0
+hook=pre dir=org act=noop 10.10.0.6:50436->10.10.0.1:22(0.0.0.0:0)
+hook=post dir=reply act=noop 10.10.0.1:22->10.10.0.6:50436(0.0.0.0:0)
+pos/(before,after) 0/(0,0), 0/(0,0)
+src_mac=02:00:00:00:00:01
+misc=0 policy_id=4294967295 pol_uuid_idx=0 auth_info=0 chk_client_info=0 vd=0:20
+serial=000f87b6 tos=ff/ff app_list=0 app=0 url_cat=0
+rpdb_link_id=00000000 ngfwid=n/a
+npu_state=00000000
+no_ofld_reason:  local
+hrx info: valid=0/0, qid=0/0, npuid=0/0, sublink=0/0
+
+session info: proto=17 proto_state=01 duration=1554311 expire=174 timeout=0 refresh_dir=both flags=00000000 socktype=0 sockport=9500 av_idx=0 use=3
+origin-shaper=
+reply-shaper=
+per_ip_shaper=
+class_id=0 ha_id=0 policy_dir=0 tunnel=/ vlan_cos=0/0
+state=log local may_dirty
+statistic(bytes/packets/allow_err): org=77783416/365143/1 reply=39071549/345680/1 tuples=2
+tx speed(Bps/kbps): 49/0 rx speed(Bps/kbps): 25/0
+orgin->sink: org pre->in, reply out->post dev=21->15/15->21 gwy=0.0.0.0/0.0.0.0
+hook=pre dir=org act=noop 10.255.1.2:5246->10.255.1.1:5246(0.0.0.0:0)
+hook=post dir=reply act=noop 10.255.1.1:5246->10.255.1.2:5246(0.0.0.0:0)
+misc=0 policy_id=4294967295 pol_uuid_idx=0 auth_info=0 chk_client_info=0 vd=0
+serial=00000263 tos=ff/ff app_list=0 app=0 url_cat=0
+rpdb_link_id=00000000 ngfwid=n/a
+npu_state=00000000
+no_ofld_reason:  local
+hrx info: valid=0/0, qid=0/0, npuid=0/0, sublink=0/0
+
+session info: proto=6 proto_state=01 duration=151494 expire=3531 timeout=3600 refresh_dir=both flags=00000000 socktype=0 sockport=0 av_idx=0 use=3
+origin-shaper=
+reply-shaper=
+per_ip_shaper=
+class_id=0 ha_id=0 policy_dir=0 tunnel=/ vlan_cos=0/255
+state=log local
+statistic(bytes/packets/allow_err): org=1394811/7115/1 reply=512464/5220/1 tuples=2
+tx speed(Bps/kbps): 9/0 rx speed(Bps/kbps): 3/0
+orgin->sink: org out->post, reply pre->in dev=15->29/29->15 gwy=0.0.0.0/0.0.0.0
+hook=out dir=org act=noop 10.10.0.1:6341->10.10.0.10:541(0.0.0.0:0)
+hook=in dir=reply act=noop 10.10.0.10:541->10.10.0.1:6341(0.0.0.0:0)
+pos/(before,after) 0/(0,0), 0/(0,0)
+dst_mac=02:00:00:00:00:01
+misc=0 policy_id=0 pol_uuid_idx=0 auth_info=0 chk_client_info=0 vd=0:20
+serial=000e0915 tos=ff/ff app_list=0 app=0 url_cat=0
+rpdb_link_id=00000000 ngfwid=n/a
+npu_state=00000000
+no_ofld_reason:  local
+hrx info: valid=0/0, qid=0/0, npuid=0/0, sublink=0/0
+
+session info: proto=17 proto_state=01 duration=66 expire=113 timeout=0 refresh_dir=both flags=00000000 socktype=0 sockport=0 av_idx=0 use=3
+origin-shaper=
+reply-shaper=
+per_ip_shaper=
+class_id=0 ha_id=0 policy_dir=0 tunnel=/ vlan_cos=0/255
+state=log may_dirty npu f00
+statistic(bytes/packets/allow_err): org=216/1/1 reply=216/1/1 tuples=2
+tx speed(Bps/kbps): 3/0 rx speed(Bps/kbps): 3/0
+orgin->sink: org pre->post, reply pre->post dev=18->3/3->18 gwy=203.0.113.1/169.254.253.2
+hook=post dir=org act=snat 10.10.1.123:46268->162.159.200.1:123(203.0.113.10:46268)
+hook=pre dir=reply act=dnat 162.159.200.1:123->203.0.113.10:46268(10.10.1.123:46268)
+misc=0 policy_id=4 pol_uuid_idx=666 auth_info=0 chk_client_info=0 vd=0
+serial=000f879b tos=ff/ff app_list=0 app=0 url_cat=0
+rpdb_link_id=00000000 ngfwid=n/a
+npu_state=00000000
+npu info: flag=0x00/0x00, offload=0/0, ips_offload=0/0, epid=0/0, ipid=0/0, vlan=0x0000/0x0000
+vlifid=0/0, vtag_in=0x0000/0x0000 in_npu=0/0, out_npu=0/0, fwd_en=0/0, qid=0/0, ha_divert=0/0
+no_ofld_reason:
+ofld_fail_reason(kernel, drv): none/not-established, none(0)/none(0)
+npu_state_err=00/04
+hrx info: valid=0/0, qid=0/0, npuid=0/0, sublink=0/0
+
+session info: proto=17 proto_state=01 duration=66 expire=113 timeout=0 refresh_dir=both flags=00000000 socktype=0 sockport=0 av_idx=0 use=3
+origin-shaper=
+reply-shaper=
+per_ip_shaper=
+class_id=0 ha_id=0 policy_dir=0 tunnel=/ vlan_cos=0/255
+state=log may_dirty npu f00
+statistic(bytes/packets/allow_err): org=216/1/1 reply=216/1/1 tuples=2
+tx speed(Bps/kbps): 3/0 rx speed(Bps/kbps): 3/0
+orgin->sink: org pre->post, reply pre->post dev=9->19/19->9 gwy=169.254.253.1/0.0.0.0
+hook=pre dir=org act=noop 10.10.1.123:46268->162.159.200.1:123(0.0.0.0:0)
+hook=post dir=reply act=noop 162.159.200.1:123->10.10.1.123:46268(0.0.0.0:0)
+src_mac=02:00:00:00:00:01
+misc=0 policy_id=12 pol_uuid_idx=669 auth_info=0 chk_client_info=0 vd=0:20
+serial=000f879a tos=ff/ff app_list=0 app=0 url_cat=0
+rpdb_link_id=00000000 ngfwid=n/a
+npu_state=00000000
+npu info: flag=0x00/0x00, offload=0/0, ips_offload=0/0, epid=0/0, ipid=0/0, vlan=0x0000/0x0000
+vlifid=0/0, vtag_in=0x0000/0x0000 in_npu=0/0, out_npu=0/0, fwd_en=0/0, qid=0/0, ha_divert=0/0
+no_ofld_reason:
+ofld_fail_reason(kernel, drv): none/not-established, none(0)/none(0)
+npu_state_err=00/04
+hrx info: valid=0/0, qid=0/0, npuid=0/0, sublink=0/0
+
+session info: proto=6 proto_state=01 duration=237 expire=3567 timeout=3600 refresh_dir=both flags=00000000 socktype=0 sockport=0 av_idx=0 use=3
+origin-shaper=
+reply-shaper=
+per_ip_shaper=
+class_id=0 ha_id=0 policy_dir=0 tunnel=/ vlan_cos=0/255
+state=log may_dirty npu f00
+statistic(bytes/packets/allow_err): org=5484/33/1 reply=15411/22/1 tuples=2
+tx speed(Bps/kbps): 23/0 rx speed(Bps/kbps): 64/0
+orgin->sink: org pre->post, reply pre->post dev=18->3/3->18 gwy=203.0.113.1/169.254.253.2
+hook=post dir=org act=snat 10.10.0.22:54348->8.8.8.8:853(203.0.113.10:54348)
+hook=pre dir=reply act=dnat 8.8.8.8:853->203.0.113.10:54348(10.10.0.22:54348)
+pos/(before,after) 0/(0,0), 0/(0,0)
+misc=0 policy_id=4 pol_uuid_idx=666 auth_info=0 chk_client_info=0 vd=0
+serial=000f872c tos=ff/ff app_list=0 app=0 url_cat=0
+rpdb_link_id=00000000 ngfwid=n/a
+npu_state=0x000c00 ofld-O ofld-R
+npu info: flag=0x81/0x91, offload=9/9, ips_offload=0/0, epid=1/14, ipid=14/1, vlan=0x0000/0x0000
+vlifid=14/1, vtag_in=0x0000/0x0000 in_npu=1/1, out_npu=1/1, fwd_en=0/0, qid=7/2, ha_divert=0/0
+hrx info: valid=0/0, qid=0/0, npuid=0/0, sublink=0/0
+
+session info: proto=6 proto_state=01 duration=237 expire=3567 timeout=3600 refresh_dir=both flags=00000000 socktype=0 sockport=0 av_idx=0 use=3
+origin-shaper=
+reply-shaper=
+per_ip_shaper=
+class_id=0 ha_id=0 policy_dir=0 tunnel=/ vlan_cos=0/255
+state=log may_dirty npu f00
+statistic(bytes/packets/allow_err): org=5484/33/1 reply=15411/22/1 tuples=2
+tx speed(Bps/kbps): 23/0 rx speed(Bps/kbps): 64/0
+orgin->sink: org pre->post, reply pre->post dev=29->19/19->29 gwy=169.254.253.1/0.0.0.0
+hook=pre dir=org act=noop 10.10.0.22:54348->8.8.8.8:853(0.0.0.0:0)
+hook=post dir=reply act=noop 8.8.8.8:853->10.10.0.22:54348(0.0.0.0:0)
+pos/(before,after) 0/(0,0), 0/(0,0)
+src_mac=02:00:00:00:00:01
+misc=0 policy_id=3 pol_uuid_idx=665 auth_info=0 chk_client_info=0 vd=0:20
+serial=000f872b tos=ff/ff app_list=0 app=0 url_cat=0
+rpdb_link_id=00000000 ngfwid=n/a
+npu_state=0x000c00 ofld-O ofld-R
+npu info: flag=0x91/0x81, offload=9/9, ips_offload=0/0, epid=15/18, ipid=18/15, vlan=0x000a/0x0000
+vlifid=18/15, vtag_in=0x000a/0x0000 in_npu=1/1, out_npu=1/1, fwd_en=0/0, qid=7/4, ha_divert=0/0
+hrx info: valid=0/0, qid=0/0, npuid=0/0, sublink=0/0
+
+session info: proto=17 proto_state=01 duration=925 expire=147 timeout=0 refresh_dir=both flags=00000000 socktype=0 sockport=0 av_idx=0 use=3
+origin-shaper=
+reply-shaper=
+per_ip_shaper=
+class_id=0 ha_id=0 policy_dir=0 tunnel=/ helper=dns-udp vlan_cos=0/255
+state=log local nds
+statistic(bytes/packets/allow_err): org=2648/41/1 reply=8823/41/1 tuples=2
+tx speed(Bps/kbps): 2/0 rx speed(Bps/kbps): 8/0
+orgin->sink: org out->post, reply pre->in dev=15->29/29->15 gwy=0.0.0.0/0.0.0.0
+hook=out dir=org act=noop 10.10.0.1:1948->10.10.0.22:53(0.0.0.0:0)
+hook=in dir=reply act=noop 10.10.0.22:53->10.10.0.1:1948(0.0.0.0:0)
+dst_mac=02:00:00:00:00:01
+misc=0 policy_id=0 pol_uuid_idx=0 auth_info=0 chk_client_info=0 vd=0:20
+serial=000f8584 tos=ff/ff app_list=0 app=0 url_cat=0
+rpdb_link_id=00000000 ngfwid=n/a
+npu_state=00000000
+no_ofld_reason:  local
+hrx info: valid=0/0, qid=0/0, npuid=0/0, sublink=0/0
+
+session info: proto=17 proto_state=01 duration=917 expire=162 timeout=0 refresh_dir=both flags=00000000 socktype=0 sockport=0 av_idx=0 use=3
+origin-shaper=
+reply-shaper=
+per_ip_shaper=
+class_id=0 ha_id=0 policy_dir=0 tunnel=/ helper=dns-udp vlan_cos=0/255
+state=log local nds
+statistic(bytes/packets/allow_err): org=3747/58/1 reply=13048/58/1 tuples=2
+tx speed(Bps/kbps): 3/0 rx speed(Bps/kbps): 13/0
+orgin->sink: org out->post, reply pre->in dev=15->29/29->15 gwy=0.0.0.0/0.0.0.0
+hook=out dir=org act=noop 10.10.0.1:1948->10.10.0.5:53(0.0.0.0:0)
+hook=in dir=reply act=noop 10.10.0.5:53->10.10.0.1:1948(0.0.0.0:0)
+dst_mac=02:00:00:00:00:01
+misc=0 policy_id=0 pol_uuid_idx=0 auth_info=0 chk_client_info=0 vd=0:20
+serial=000f8585 tos=ff/ff app_list=0 app=0 url_cat=0
+rpdb_link_id=00000000 ngfwid=n/a
+npu_state=00000000
+no_ofld_reason:  local
+hrx info: valid=0/0, qid=0/0, npuid=0/0, sublink=0/0
+
+session info: proto=17 proto_state=01 duration=149359 expire=176 timeout=0 refresh_dir=both flags=00000000 socktype=0 sockport=0 av_idx=0 use=3
+origin-shaper=
+reply-shaper=
+per_ip_shaper=
+class_id=0 ha_id=0 policy_dir=0 tunnel=/ vlan_cos=0/0
+state=log local may_dirty
+statistic(bytes/packets/allow_err): org=285270/2916/1 reply=285222/2916/1 tuples=2
+tx speed(Bps/kbps): 1/0 rx speed(Bps/kbps): 1/0
+orgin->sink: org pre->in, reply out->post dev=3->15/15->3 gwy=0.0.0.0/0.0.0.0
+hook=pre dir=org act=noop 198.51.100.44:4500->203.0.113.10:4500(0.0.0.0:0)
+hook=post dir=reply act=noop 203.0.113.10:4500->198.51.100.44:4500(0.0.0.0:0)
+misc=0 policy_id=1 pol_uuid_idx=676 auth_info=0 chk_client_info=0 vd=0
+serial=000e0f63 tos=ff/ff app_list=0 app=0 url_cat=0
+rpdb_link_id=00000000 ngfwid=n/a
+npu_state=00000000
+no_ofld_reason:  local
+hrx info: valid=0/0, qid=0/0, npuid=0/0, sublink=0/0
