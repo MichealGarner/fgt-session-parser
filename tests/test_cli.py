@@ -62,3 +62,28 @@ def test_wrong_format_returns_2(tmp_path, capsys):
     f = tmp_path / "junk.txt"
     f.write_text("this is not session output\n")
     assert main([str(f)]) == 2
+
+
+def test_older_than(capsys):
+    _, rows = run_json(capsys, "--older-than", "30")
+    assert sorted(r["policy_id"] for r in rows) == [5, 12]
+
+
+def test_newer_than(capsys):
+    _, rows = run_json(capsys, "--newer-than", "30")
+    assert [r["policy_id"] for r in rows] == [7]
+
+
+def test_age_filters_combine(capsys):
+    _, rows = run_json(capsys, "--older-than", "10", "--newer-than", "100")
+    assert sorted(r["policy_id"] for r in rows) == [5, 7]
+
+
+def test_age_filter_excludes_sessions_without_duration(tmp_path, capsys):
+    f = tmp_path / "s.txt"
+    f.write_text(
+        "session info: proto=6 proto_state=01\n"
+        "hook=out dir=org act=noop 10.0.0.1:1000->10.0.0.2:80(0.0.0.0:0)\n"
+    )
+    assert main([str(f), "--json", "--older-than", "0"]) == 0
+    assert json.loads(capsys.readouterr().out) == []

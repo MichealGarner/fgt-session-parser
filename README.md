@@ -23,6 +23,7 @@ fgt-sessions sessions.txt
 fgt-sessions sessions.txt --policy 12
 fgt-sessions sessions.txt --src 192.168.1.0/24 --proto tcp
 fgt-sessions sessions.txt --top 10
+fgt-sessions sessions.txt --older-than 180 --dst 198.51.100.0/24
 fgt-sessions sessions.txt --json
 ```
 
@@ -34,6 +35,8 @@ Use `-` as the file name to read from stdin.
 | `--src IP/CIDR` | Origin source address, exact or inside a network |
 | `--dst IP/CIDR` | Origin destination address, exact or inside a network |
 | `--proto tcp\|udp\|icmp` | Protocol |
+| `--older-than SECONDS` | Only sessions older than this. Answers "did this flow start before the event?" |
+| `--newer-than SECONDS` | Only sessions younger than this |
 | `--top N` | The N busiest sessions by total bytes |
 | `--json` | JSON instead of a table |
 

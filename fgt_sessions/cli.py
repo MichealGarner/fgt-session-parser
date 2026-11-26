@@ -55,6 +55,14 @@ def _matches(s: Session, args: argparse.Namespace) -> bool:
         return False
     if args.dst and not (o and _ip_match(o.dst, args.dst)):
         return False
+    if args.older_than is not None and not (
+        s.duration is not None and s.duration > args.older_than
+    ):
+        return False
+    if args.newer_than is not None and not (
+        s.duration is not None and s.duration < args.newer_than
+    ):
+        return False
     return True
 
 
@@ -107,6 +115,10 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--src", help="origin source IP or CIDR")
     p.add_argument("--dst", help="origin destination IP or CIDR")
     p.add_argument("--proto", choices=["tcp", "udp", "icmp"], help="protocol")
+    p.add_argument("--older-than", type=int, metavar="SECONDS",
+                   help="only sessions whose age is greater than SECONDS")
+    p.add_argument("--newer-than", type=int, metavar="SECONDS",
+                   help="only sessions whose age is less than SECONDS")
     p.add_argument("--top", type=int, metavar="N",
                    help="show the N busiest sessions by total bytes")
     p.add_argument("--json", action="store_true", help="JSON output instead of a table")
