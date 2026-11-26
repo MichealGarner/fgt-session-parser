@@ -28,3 +28,8 @@
 ## Blog corrections needed
 
 - NSE4 CLI reference Part 2 (session table): corrected 2026-11-26.
+
+## Real 7.6.6 observations (2026-11-26)
+- Multi-VDOM capture, 20 sessions: all 10 TCP read `01`, forwarded and local, so the guide's `11` example did not reproduce. UDP: `00` with no reply, `01` with reply.
+- Half-closed capture: client held a connection open to sshd with no data; sshd closed it from the server side. State went `01` -> `07` (CLOSE_WAIT) and `expire` dropped from 3600 to the half-close timer. Second digit changed, first stayed `0`. Session gone after the timer.
+- Still open: what the first digit means, and which digit is which direction. Needs a client-closes-first capture.

@@ -49,3 +49,16 @@ def test_multivdom_capture():
     assert states[(6, "01")] == 10
     # UDP: 00 = no reply seen, 01 = reply seen.
     assert states[(17, "00")] == 4 and states[(17, "01")] == 6
+
+
+def test_half_closed_capture():
+    from pathlib import Path
+    from fgt_sessions.parser import parse_sessions
+
+    text = Path(__file__).parent.joinpath("fixtures", "real_7_6_6_halfclosed.txt").read_text()
+    sessions, skipped = parse_sessions(text)
+    assert len(sessions) == 1 and skipped == 0
+    s = sessions[0]
+    # Server closed first: second digit moved from 1 (ESTABLISHED) to 7 (CLOSE_WAIT).
+    assert s.proto_state == "07"
+    assert s.state_name == "NONE/CLOSE_WAIT"

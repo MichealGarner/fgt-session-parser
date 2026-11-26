@@ -55,16 +55,18 @@ Age and Expire are in seconds. Sent and Received are the original and reply dire
 
 ## What it does not do yet
 
-- TCP `proto_state` is two digits, one per direction (Fortinet Administration Guide,
-  "Using a session table"). Each digit is named from the FortiOS CLI reference
-  (0 NONE, 1 ESTABLISHED, 2 SYN_SENT, 3 SYN_RECV, 4 FIN_WAIT, 5 TIME_WAIT, 6 CLOSE,
-  7 CLOSE_WAIT, 8 LAST_ACK, 9 LISTEN) and shown as `FIRST/SECOND`, so `01` reads
-  `NONE/ESTABLISHED` and `11` reads `ESTABLISHED/ESTABLISHED`. The guide does not say
-  which digit is which direction, so the tool does not label them. Non-TCP protocols
-  show the raw value.
+- TCP `proto_state` is documented as two digits, one per direction (Fortinet
+  Administration Guide, "Using a session table"). Each digit is named from the FortiOS
+  CLI reference (0 NONE, 1 ESTABLISHED, 2 SYN_SENT, 3 SYN_RECV, 4 FIN_WAIT, 5 TIME_WAIT,
+  6 CLOSE, 7 CLOSE_WAIT, 8 LAST_ACK, 9 LISTEN) and shown as `FIRST/SECOND`. On a real
+  FortiOS 7.6.6 unit every established TCP session read `01` (local, forwarded and
+  NP-offloaded alike, not the guide's `11`), and a session the server had closed read
+  `07`. The first digit was `0` in every TCP session seen, so `01` shows as
+  `NONE/ESTABLISHED`. Which digit is which direction is unconfirmed, so the tool does not
+  label them. Non-TCP protocols show the raw value (UDP: 0 no reply seen, 1 reply seen).
 - Local sessions (traffic to or from the FortiGate itself) have no firewall policy and
   show `-` in the Policy column.
-- Tested against hand-built samples, published lines, and one real 7.6.6 capture, not
+- Tested against hand-built samples, published lines, and real 7.6.6 captures, not
   every FortiOS version. IPv6 sessions are untested. See `NOTES.md` for the open checks.
 - Blocks it cannot parse are skipped and counted on stderr, not repaired.
 

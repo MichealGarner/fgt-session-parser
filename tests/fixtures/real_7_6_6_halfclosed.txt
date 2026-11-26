@@ -1,0 +1,22 @@
+
+session info: proto=6 proto_state=07 duration=130 expire=22 timeout=3600 refresh_dir=both flags=00000000 socktype=0 sockport=0 av_idx=0 use=3
+origin-shaper=
+reply-shaper=
+per_ip_shaper=
+class_id=0 ha_id=0 policy_dir=0 tunnel=/ vlan_cos=0/255
+state=log may_dirty npu f00
+statistic(bytes/packets/allow_err): org=164/3/1 reply=205/3/1 tuples=2
+tx speed(Bps/kbps): 1/0 rx speed(Bps/kbps): 1/0
+orgin->sink: org pre->post, reply pre->post dev=29->9/9->29 gwy=0.0.0.0/0.0.0.0
+hook=pre dir=org act=noop 10.10.0.6:42718->10.10.1.123:22(0.0.0.0:0)
+hook=post dir=reply act=noop 10.10.1.123:22->10.10.0.6:42718(0.0.0.0:0)
+pos/(before,after) 0/(0,0), 0/(0,0)
+src_mac=02:00:00:00:00:01  dst_mac=02:00:00:00:00:02
+misc=0 policy_id=11 pol_uuid_idx=668 auth_info=0 chk_client_info=0 vd=0:20
+serial=000f8f8d tos=ff/ff app_list=0 app=0 url_cat=0
+rpdb_link_id=00000000 ngfwid=n/a
+npu_state=0x000c00 ofld-O ofld-R
+npu info: flag=0x81/0x81, offload=9/9, ips_offload=0/0, epid=7/18, ipid=18/7, vlan=0x000a/0x0000
+vlifid=18/7, vtag_in=0x000a/0x0000 in_npu=1/1, out_npu=1/1, fwd_en=0/0, qid=7/7, ha_divert=0/0
+hrx info: valid=0/0, qid=0/0, npuid=0/0, sublink=0/0
+total session: 1
