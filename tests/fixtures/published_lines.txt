@@ -1,0 +1,10 @@
+session info: proto=6 proto_state=01 duration=187 expire=14 timeout=3600
+hook=out dir=org act=noop 10.10.20.4:10979->10.10.20.10:541(0.0.0.0:0)
+hook=in dir=reply act=noop 10.10.20.10:541->10.10.20.4:10979(0.0.0.0:0)
+misc=0 policy_id=44 vd=0
+npu_state=0x4000
+
+session info: proto=17 proto_state=01 duration=187 expire=14 timeout=3600
+hook=post dir=org act=snat 10.30.10.55:50142->198.51.100.20:3478(203.0.113.5:50142)
+misc=0 policy_id=44 vd=0
+npu_state=0x4000

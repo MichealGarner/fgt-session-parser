@@ -1,0 +1,36 @@
+session info: proto=6 proto_state=01 duration=35 expire=3568 timeout=3600 refresh_dir=both flags=00000000 socktype=0 sockport=0 av_idx=0 use=3
+origin-shaper=
+reply-shaper=
+per_ip_shaper=
+class_id=0 ha_id=0 policy_dir=0 tunnel=/ vlan_cos=0/255
+state=log may_dirty f00
+statistic(bytes/packets/allow_err): org=1234/12/1 reply=5678/10/1 tuples=2
+tx speed(Bps/kbps): 0/0 rx speed(Bps/kbps): 0/0
+orgin->sink: org pre->post, reply pre->post dev=5->3/3->5 gwy=203.0.113.1/192.168.1.5
+hook=post dir=org act=snat 192.168.1.5:50422->198.51.100.8:443(203.0.113.2:50422)
+hook=pre dir=reply act=dnat 198.51.100.8:443->203.0.113.2:50422(192.168.1.5:50422)
+pos/(before,after) 0/(0,0), 0/(0,0)
+misc=0 policy_id=5 pol_uuid_idx=123 auth_info=0 chk_client_info=0 vd=0
+serial=0001d9f1 tos=ff/ff app_list=0 app=0 url_cat=0
+rpdb_link_id=00000000 ngfwid=n/a
+npu_state=0x000000
+
+session info: proto=17 proto_state=00 duration=12 expire=48 timeout=0 flags=00000000 socktype=0 sockport=0 av_idx=0 use=3
+origin-shaper=
+reply-shaper=
+per_ip_shaper=
+class_id=0 ha_id=0 policy_dir=0 tunnel=/ vlan_cos=0/255
+state=may_dirty
+statistic(bytes/packets/allow_err): org=74/1/1 reply=90/1/1 tuples=2
+orgin->sink: org pre->post, reply pre->post dev=5->3/3->5 gwy=203.0.113.1/192.168.1.9
+hook=post dir=org act=snat 192.168.1.9:41234->198.51.100.53:53(203.0.113.2:41234)
+hook=pre dir=reply act=dnat 198.51.100.53:53->203.0.113.2:41234(192.168.1.9:41234)
+misc=0 policy_id=7 pol_uuid_idx=456 auth_info=0 chk_client_info=0 vd=0
+serial=0001d9f2 tos=ff/ff app_list=0 app=0 url_cat=0
+
+session info: proto=6 proto_state=01 duration=300 expire=3300 timeout=3600 flags=00000000 socktype=0 sockport=0 av_idx=0 use=3 newfield=abc
+statistic(bytes/packets/allow_err): org=900000/600/0 reply=4500000/3100/0 tuples=2
+hook=pre dir=org act=noop 192.168.1.20:52000->192.168.2.10:22(0.0.0.0:0)
+hook=post dir=reply act=noop 192.168.2.10:22->192.168.1.20:52000(0.0.0.0:0)
+misc=0 policy_id=12 pol_uuid_idx=789 auth_info=0 chk_client_info=0 vd=0
+serial=0001d9f3 tos=ff/ff app_list=0 app=0 url_cat=0
